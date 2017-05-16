@@ -2,12 +2,27 @@ var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 
 module.exports = {
-  context: __dirname,
+  context: __dirname ,
   devtool: debug ? "inline-sourcemap" : false,
-  entry: "./js/scripts.js",
+  entry: "./js/client.js",
+  module: {
+    rules: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              // presets: ['env']
+              presets: ['env', 'es2015', 'stage-0', 'stage-1']
+            }
+          }
+        }
+      ]
+  },
   output: {
-    path: __dirname + "/js",
-    filename: "scripts.min.js"
+    path: __dirname + "/src",
+    filename: "client.min.js"
   },
   plugins: debug ? [] : [
         new webpack.optimize.OccurrenceOrderPlugin(),
