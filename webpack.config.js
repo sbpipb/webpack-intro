@@ -2,7 +2,7 @@ var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 
 module.exports = {
-  context: __dirname ,
+  context: __dirname + '/src',
   devtool: debug ? "inline-sourcemap" : false,
   entry: "./js/client.js",
   module: {
@@ -13,8 +13,8 @@ module.exports = {
           use: {
             loader: 'babel-loader',
             options: {
-              // presets: ['env']
-              presets: ['env', 'es2015', 'stage-0', 'stage-1']
+              presets: ['env','es2015', 'react']
+              // presets: ['env', 'es2015-webpack', 'stage-0', 'stage-1']
             }
           }
         }
