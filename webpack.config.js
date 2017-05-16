@@ -13,8 +13,7 @@ module.exports = {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['env','es2015', 'react']
-              // presets: ['env', 'es2015-webpack', 'stage-0', 'stage-1']
+              presets: ['react', 'es2015', 'stage-1', 'stage-2']
             }
           }
         }
