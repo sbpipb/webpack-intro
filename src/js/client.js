@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
+import moment from 'moment';
 
 class Layout extends React.Component {
-  // console.log('asdasda asd asd asd');
+
   render() {
-    return( <div>It's Working right now but it doens't load on the fliy wtf</div>
+    let rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
+    console.log(rightNow);
+    console.log('cum out')
+    return( <div> Welcome to JVLIVN!!! {rightNow} It's Working right now but it doens't load on the fliy wtf</div>
     );
   }
 }

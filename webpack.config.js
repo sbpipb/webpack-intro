@@ -1,5 +1,6 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   context: __dirname + '/src',
@@ -20,8 +21,13 @@ module.exports = {
       ]
   },
   output: {
-    path: __dirname + "/src",
-    filename: "client.min.js"
+    // library: 'myClassName',
+    path: path.resolve(__dirname, './dist'),
+    filename: "client.min.js",
+    publicPath: '/assets',
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './src'),
   },
   plugins: debug ? [] : [
         new webpack.optimize.OccurrenceOrderPlugin(),
