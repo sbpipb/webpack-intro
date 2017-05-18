@@ -23,11 +23,14 @@ module.exports = {
           test: /\.css$/,
           use: ['style-loader', {
             loader: 'css-loader',
-            options: { modules: true },
+            options: { modules: false },
             }
           ],
         },
       ]
+  },
+  resolve: {
+    modules: [path.resolve(__dirname, './src'), 'node_modules']
   },
   output: {
     // library: 'myClassName',
