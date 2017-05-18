@@ -5,12 +5,19 @@ import styles from '../../assets/stylesheets/application.css';
 
 
 class Layout extends React.Component {
+  defaultTemplate = (props) => {
+    return (
+      <div>
+        <div style={{textAlign: 'center', fontSize: '2em'}}><h1>JVLIVN</h1></div>
+        <div className='column'><h1>Underwear I kinda care, wanna look good for you</h1></div>
+      </div>
+    )
+  }
 
   render() {
-    console.log(styles);
     let rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
-    return( <div> Welcome to JVLIVN!! {rightNow} It's Working right now but it doens't load on the fliy wtf</div>
-    );
+    let template = this.defaultTemplate()
+    return (template)
   }
 }
 const app = document.getElementById('app');

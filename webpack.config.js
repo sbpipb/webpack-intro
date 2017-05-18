@@ -21,7 +21,11 @@ module.exports = {
         {
           // Loaders are processed in reverse array order. That means css-loader will run before style-loader.
           test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
+          use: ['style-loader', {
+            loader: 'css-loader',
+            options: { modules: true },
+            }
+          ],
         },
       ]
   },
